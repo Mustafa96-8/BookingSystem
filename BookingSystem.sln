@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingSystem.API", "BookingSystem.API\BookingSystem.API.csproj", "{79391064-0A4E-4A87-80B2-3A5DBBBB6FB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingSystem.Domain", "BookingSystem.Domain\BookingSystem.Domain.csproj", "{B7CC5EB5-DF7A-4CCF-978E-C23108C589B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingSystem.Application", "BookingSystem.Application\BookingSystem.Application.csproj", "{E7BB00EE-D94E-47EC-89C4-9FDE2ED8D9F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingSystem.Infrastructure", "BookingSystem.Infrastructure\BookingSystem.Infrastructure.csproj", "{75CCAE57-B269-41FB-918B-076E4CBCCBBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{6FAD5E47-AA0A-4946-9CE3-49B2FB8A50FD}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{1CBF436F-DBD3-4353-9BFA-4C0AB5B3744E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{79391064-0A4E-4A87-80B2-3A5DBBBB6FB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79391064-0A4E-4A87-80B2-3A5DBBBB6FB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79391064-0A4E-4A87-80B2-3A5DBBBB6FB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79391064-0A4E-4A87-80B2-3A5DBBBB6FB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7CC5EB5-DF7A-4CCF-978E-C23108C589B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7CC5EB5-DF7A-4CCF-978E-C23108C589B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7CC5EB5-DF7A-4CCF-978E-C23108C589B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7CC5EB5-DF7A-4CCF-978E-C23108C589B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7BB00EE-D94E-47EC-89C4-9FDE2ED8D9F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7BB00EE-D94E-47EC-89C4-9FDE2ED8D9F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7BB00EE-D94E-47EC-89C4-9FDE2ED8D9F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7BB00EE-D94E-47EC-89C4-9FDE2ED8D9F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75CCAE57-B269-41FB-918B-076E4CBCCBBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75CCAE57-B269-41FB-918B-076E4CBCCBBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75CCAE57-B269-41FB-918B-076E4CBCCBBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75CCAE57-B269-41FB-918B-076E4CBCCBBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FAD5E47-AA0A-4946-9CE3-49B2FB8A50FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FAD5E47-AA0A-4946-9CE3-49B2FB8A50FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FAD5E47-AA0A-4946-9CE3-49B2FB8A50FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FAD5E47-AA0A-4946-9CE3-49B2FB8A50FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CBF436F-DBD3-4353-9BFA-4C0AB5B3744E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CBF436F-DBD3-4353-9BFA-4C0AB5B3744E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CBF436F-DBD3-4353-9BFA-4C0AB5B3744E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CBF436F-DBD3-4353-9BFA-4C0AB5B3744E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
