@@ -4,33 +4,41 @@ using CSharpFunctionalExtensions;
 using System.Globalization;
 
 namespace BookingSystem.Domain.Entities;
-public class User
+public class User : Entity
 {
     private User() { }
-    private User(string name,string email,string passsword, PhoneNumber phone,float rating)
+    private User(string name,string email,string passsword, PhoneNumber phone)
     {
         Name = name;
         Email = email;
         Password = passsword;
         Phone = phone;
-        Rating = rating;
     }
-    public Guid Id { get; init; }
-
+    /// <summary>
+    /// Full Name of User
+    /// </summary>
     public string Name { get; private set; }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public string Email { get; private set; }
 
-    public string Password { get; private set; }
+    public string? PasswordHash { get; private set; }
 
+    private string Salt { get; set; }
+    /// <summary>
+    /// Номер телефона 
+    /// </summary>
     public PhoneNumber Phone {  get; private set; }
 
-    public float Rating { get; private set; } = 0;
-
-    public static Result<User,Error> Create(string name, string email, string passsword, PhoneNumber phone, float rating)
+    /// <summary>
+    /// TO DO: Добавить Валидацию
+    /// </summary>
+    public static Result<User,Error> Create(string name, string email, string passsword, PhoneNumber phone)
     {
         
-        return new User(name, email, passsword, phone, rating);
+        return new User(name, email, passsword, phone);
     }
 
 }

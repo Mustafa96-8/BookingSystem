@@ -12,12 +12,10 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
 {
     public void Configure(EntityTypeBuilder<User> builder)
     {
-
         builder.HasKey(x => x.Id);
         builder.Property(x => x.Name).IsRequired().HasMaxLength(128);
-        builder.Property(x => x.Password).IsRequired().HasMaxLength(32);
+        builder.Property(x => x.PasswordHash).IsRequired().HasMaxLength(256);
         builder.Property(x => x.Email).IsRequired();
-        builder.Property(x => x.Rating).HasDefaultValue(0);
 
         builder.ComplexProperty(p => p.Phone, b =>
         {
