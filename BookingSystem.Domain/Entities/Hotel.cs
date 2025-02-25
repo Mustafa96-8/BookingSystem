@@ -8,23 +8,24 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BookingSystem.Domain.Entities;
-public class Hotel
+public class Hotel : Entity
 {
     private Hotel() {}
-    private Hotel(string name,Address address,float rating)
+    private Hotel(string name,Address address,float rating):base()
     {
         Name = name;
         Address = address;
         Rating = rating;
     }
-    public Guid Id { get; init; }
 
     public string Name { get; private set; } = "Unknown Hotel";
 
     public Address Address { get; private set; }
 
     public float Rating { get; private set; } = 0;
-
+    /// <summary>
+    /// TO DO: Добавить Валидацию
+    /// </summary>
     public static Result<Hotel,Error> Create(string name,Address address,float rating)
     {
 
