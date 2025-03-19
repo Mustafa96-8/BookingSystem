@@ -38,5 +38,8 @@ public static class Errors
 
         public static Error ValueIsInvalid(string? field = null) =>
             new Error("value.is.Invalid", $"The value is invalid {field}");
+
+        public static Error InvalidLength(string? field = null) =>
+            new Error("value.length.is.invalid", $"The value length is invalid {field}");
     }
 }
