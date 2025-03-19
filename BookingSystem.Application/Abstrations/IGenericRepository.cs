@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookingSystem.Application.Abstrations;
+namespace BookingSystem.Application.Abstractions;
 public interface IGenericRepository<T>:IDisposable where T : class
 {
     Task<Result<int, Error>> Delete(T T, CancellationToken ct);

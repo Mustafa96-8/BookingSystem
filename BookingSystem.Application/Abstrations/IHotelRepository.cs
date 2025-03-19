@@ -1,4 +1,4 @@
-﻿using BookingSystem.Application.Abstrations;
+﻿using BookingSystem.Application.Abstractions;
 using BookingSystem.Domain.Common;
 using BookingSystem.Domain.Entities;
 using CSharpFunctionalExtensions;

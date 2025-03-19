@@ -1,4 +1,4 @@
-﻿using BookingSystem.Application.Abstrations;
+﻿using BookingSystem.Application.Abstractions;
 using BookingSystem.Application.Services;
 using BookingSystem.Domain.Entities;
 using Microsoft.Extensions.DependencyInjection;

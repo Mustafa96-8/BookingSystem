@@ -13,6 +13,6 @@ public class UserDTO
 
     public string Password { get; set; }
 
-    public string Number { get; set; }
+    public string PhoneNumber { get; set; }
 
 }
