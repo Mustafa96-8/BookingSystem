@@ -1,15 +1,9 @@
 ﻿using BookingSystem.Application.Abstractions;
-using BookingSystem.Application.Abstrations;
 using BookingSystem.Domain.Common;
 using BookingSystem.Domain.Entities;
 using BookingSystem.Domain.ValueObjects;
 using Contracts.DTO;
 using CSharpFunctionalExtensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BookingSystem.Application.Services;
 public class HotelService
@@ -21,38 +15,49 @@ public class HotelService
         _hotelRepository = hotelRepository;
     }
 
-    public async Task<Result<IEnumerable<Hotel>,Error>> GetAll(CancellationToken ct)
+    public async Task<Result<IEnumerable<Hotel>, Error>> GetAll(CancellationToken ct)
     {
-        return await _hotelRepository.Get(ct);
+        var hotels = await _hotelRepository.Get(ct);
+        if(hotels.IsFailure)
+            return hotels.Error;
+        return hotels.Value.ToList();
     }
 
-    public async Task<Result<Guid,Error>> Create(HotelRequest request,CancellationToken ct)
+    public async Task<Result<Hotel, Error>> GetById(Guid? id, CancellationToken ct)
+    {
+        if(id == null) return Errors.General.NotFound(id);
+        var hotel = await _hotelRepository.GetById((Guid)id, ct);
+        if(hotel.IsFailure)
+            return hotel.Error;
+        return hotel.Value;
+    }
+
+    public async Task<Result<Guid, Error>> Create(HotelRequest request, CancellationToken ct)
     {
         var adress = Address.Create(
-            request.Name, 
-            request.Street, 
-            request.Building, 
+            request.City,
+            request.Street,
+            request.Building,
             request.PostalCode);
 
-        if (adress.IsFailure)
+        if(adress.IsFailure)
             return adress.Error;
-       
+
         var hotel = Hotel.Create(
-            request.Name, 
-            adress.Value, 
+            request.Name,
+            adress.Value,
             request.Rating);
 
-        if (hotel.IsFailure) 
+        if(hotel.IsFailure)
             return hotel.Error;
-        var id = await _hotelRepository.Add(hotel.Value,ct);
+        var id = await _hotelRepository.Add(hotel.Value, ct);
 
-        if (id.IsFailure)
+        if(id.IsFailure)
         {
             return id.Error;
         }
 
         return id.Value;
-
     }
 
 
