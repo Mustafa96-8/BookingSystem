@@ -5,8 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace BookingSystem.API.Controllers;
-[Route("[controller]")]
-public class HotelController : ControllerBase
+public class HotelController : BaseController
 {
     private readonly HotelService _hotelService;
     public HotelController(HotelService hotelService)
