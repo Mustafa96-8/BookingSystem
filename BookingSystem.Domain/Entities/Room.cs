@@ -14,15 +14,13 @@ public class Room : Entity
 {
     private Room() { }
 
-    private Room(string description, Price price, RoomType roomType, IEnumerable<Сonvenience> сonveniences)
+    private Room(string description, Price price, RoomType roomType, IEnumerable<Сonvenience> conveniences)
     {
         Description = description;
         this.price = price;
         this.roomType = roomType;
-        this.сonveniences = сonveniences;
+        this.conveniences = conveniences;
     }
-
-
     /// <summary>
     /// Описание комнаты
     /// </summary>
@@ -38,17 +36,17 @@ public class Room : Entity
     /// <summary>
     /// Удобства
     /// </summary>
-    public IEnumerable<Сonvenience> сonveniences { get; private set; } = [];
-
+    public IEnumerable<Сonvenience> conveniences { get; private set; } = [];
     /// <summary>
-    /// TO DO: Добавить Валидацию
+    /// Создание экземпляра комнаты
     /// </summary>
-    public static Result<Room,Error> Create(string description, Price price, RoomType roomType, IEnumerable<Сonvenience> сonveniences)
+    /// <param name="description">Описание комнаты</param>
+    /// <param name="price">Цена за номер <seealso cref="Price"/></param>
+    /// <param name="roomType">Тип номера в формате <seealso cref="Collections.RoomType"/> </param>
+    /// <param name="conveniences">Массив удобств в формате перечисления <seealso cref="Collections.Сonvenience"/></param>
+    /// <returns>Новая комната</returns>
+    public static Result<Room,Error> Create(string description, Price price, RoomType roomType, IEnumerable<Сonvenience> conveniences)
     {
-        if(description == null|| price==null||roomType==null|| сonveniences == null)
-        {
-            return Errors.General.ValueIsRequired();
-        }
-        return new Room(description, price, roomType, сonveniences);
+       return new Room(description, price, roomType, conveniences);
     } 
 }
