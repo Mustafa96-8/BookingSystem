@@ -20,6 +20,7 @@ internal class HotelConfiguration : IEntityTypeConfiguration<Hotel>
         {
             b.Property(p=>p.Street).IsRequired().HasMaxLength(128);
             b.Property(p=>p.PostalCode).IsRequired().HasMaxLength(40);
+            b.Property(p => p.Building).IsRequired().HasMaxLength(32);
             b.Property(p=>p.City).IsRequired().HasMaxLength(128);
         });
     }
