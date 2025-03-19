@@ -29,9 +29,14 @@ public class CurrentRoom :Entity
     /// Стандартная комната
     /// </summary>
     public Room room { get; private set; }
-    /// <summary>
-    /// TO DO: Добавить Валидацию
-    /// </summary>
-    public static Result<CurrentRoom, Error> Create(int number, IEnumerable<byte> photos,Room room) => new CurrentRoom(number, photos, room);
 
+    public static Result<CurrentRoom, Error> Create(
+        int number,
+        IEnumerable<byte> photos,
+        Room room)
+    {
+        if(number <= 0) 
+            return Errors.General.ValueIsInvalid(nameof(number));
+        return new CurrentRoom(number, photos, room);
+    }
 }
