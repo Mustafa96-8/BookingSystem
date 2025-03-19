@@ -33,8 +33,14 @@ public record Address
         street = street.Trim();
         building = building.Trim();
         postalCode = postalCode.Trim();
-        if (city.Length is < 1 or > MAXPROPERTYLENGTH) 
-            return Errors.General.ValueIsInvalid(nameof(city));
+        if(city.Length is < 1 or > MAXPROPERTYLENGTH)
+            return Errors.General.InvalidLength("city");
+        if(street.Length is < 1 or > MAXPROPERTYLENGTH)
+            return Errors.General.InvalidLength("street");
+        if(building.Length is < 1 or > MAXPROPERTYLENGTH)
+            return Errors.General.InvalidLength("building");
+        if(postalCode.Length is < 1 or > MAXPROPERTYLENGTH)
+            return Errors.General.InvalidLength("postalCode");
 
         return new Address(city, street, building, postalCode);
     }
