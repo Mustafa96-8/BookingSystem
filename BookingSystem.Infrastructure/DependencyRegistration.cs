@@ -1,5 +1,4 @@
 ﻿using BookingSystem.Application.Abstractions;
-using BookingSystem.Application.Abstrations;
 using BookingSystem.Infrastructure.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -14,6 +13,7 @@ public static class DependencyRegistration
     public static IServiceCollection AddInfrastructure(this IServiceCollection services)
     {
         services.AddScoped<IHotelRepository,HotelRepository>();
+        services.AddScoped<IUserRepository,UserRepository>();
         services.AddDbContext<BookingSystemDbContext>();
 
         return services;

@@ -14,6 +14,7 @@ public static class DependencyRegitration
     public static IServiceCollection AddApplication(this IServiceCollection services) 
     {
         services.AddScoped<HotelService>();
+        services.AddScoped<UserService>();
         return services;
     }
 }
