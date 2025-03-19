@@ -18,9 +18,13 @@ public record Price
     public double value { get; private set; }
     public string currency { get; private set; }
 
-    //TO DO Добавить валидацию
+    
     public static Result<Price,Error> Create(double value,string currency)
     {
+        if(value < 0 )
+            return Errors.General.ValueIsInvalid(nameof(value));
+        if(string.IsNullOrWhiteSpace(currency))
+            return Errors.General.ValueIsRequired(nameof(currency));
         return new Price(value, currency);
     }
 }
