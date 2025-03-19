@@ -26,6 +26,23 @@ public class HotelController : BaseController
         return BadRequest(result.Error);
 
     }
+    // </snippet_GetByID>
+
+    // GET: api/<HotelController>/<guid>
+    // <snippet_Update>
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetById(Guid? id, CancellationToken ct)
+    {
+        var result = await _hotelService.GetById(id, ct);
+        if(result.IsFailure)
+            return BadRequest(result.Error);
+
+        return Ok(result.Value);
+    }
+    // </snippet_Update>
+
+    // POST: api/TodoItems
+    // <snippet_Create>
 
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] HotelRequest request,CancellationToken ct)
@@ -36,4 +53,6 @@ public class HotelController : BaseController
 
         return Ok(result.Value);
     }
+    // </snippet_Create>
+
 }

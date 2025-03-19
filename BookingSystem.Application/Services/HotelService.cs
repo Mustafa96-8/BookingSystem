@@ -25,7 +25,7 @@ public class HotelService
 
     public async Task<Result<Hotel, Error>> GetById(Guid? id, CancellationToken ct)
     {
-        if(id == null) return Errors.General.NotFound(id);
+        if(id == null) return Errors.General.ValueIsRequired(nameof(id));
         var hotel = await _hotelRepository.GetById((Guid)id, ct);
         if(hotel.IsFailure)
             return hotel.Error;
