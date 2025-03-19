@@ -11,7 +11,7 @@ public class User : Entity
     {
         Name = name;
         Email = email;
-        Password = passsword;
+        PasswordHash = passsword;
         Phone = phone;
     }
     /// <summary>
