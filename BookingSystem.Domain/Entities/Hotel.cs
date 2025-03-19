@@ -23,12 +23,13 @@ public class Hotel : Entity
     public Address Address { get; private set; }
 
     public float Rating { get; private set; } = 0;
-    /// <summary>
-    /// TO DO: Добавить Валидацию
-    /// </summary>
-    public static Result<Hotel,Error> Create(string name,Address address,float rating)
-    {
 
+    public static Result<Hotel, Error> Create(string name, Address address, float rating)
+    {
+        if(name.IsNullOrWhiteSpace())
+            return Errors.General.ValueIsRequired(nameof(name));
+        if(rating < 0 || rating > 5)
+            return Errors.General.ValueIsInvalid(nameof(rating));
         return new Hotel(name,address,rating);
     }
 
