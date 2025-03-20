@@ -109,7 +109,7 @@ namespace BookingSystem.Infrastructure.Migrations
                         .HasDefaultValue(0f)
                         .HasColumnName("rating");
 
-                    b.ComplexProperty<Dictionary<string, object>>("Phone", "BookingSystem.Domain.Entities.User.Phone#PhoneNumber", b1 =>
+                    b.ComplexProperty<Dictionary<string, object>>("Phone", "BookingSystem.Domain.Entities.User.Phone#PhoneNumberRecord", b1 =>
                         {
                             b1.IsRequired();
 

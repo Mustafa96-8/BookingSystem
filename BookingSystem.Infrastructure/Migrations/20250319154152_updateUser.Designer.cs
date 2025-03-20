@@ -104,7 +104,7 @@ namespace BookingSystem.Infrastructure.Migrations
                         .HasColumnType("character varying(256)")
                         .HasColumnName("password_hash");
 
-                    b.ComplexProperty<Dictionary<string, object>>("Phone", "BookingSystem.Domain.Entities.User.Phone#PhoneNumber", b1 =>
+                    b.ComplexProperty<Dictionary<string, object>>("Phone", "BookingSystem.Domain.Entities.User.Phone#PhoneNumberRecord", b1 =>
                         {
                             b1.IsRequired();
 
