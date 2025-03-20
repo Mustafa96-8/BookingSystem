@@ -1,5 +1,6 @@
 ﻿using BookingSystem.Domain.Common;
 using CSharpFunctionalExtensions;
+using PN = PhoneNumbers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,29 +11,39 @@ using System.Threading.Tasks;
 namespace BookingSystem.Domain.ValueObjects;
 public record PhoneNumber
 {
-    private const string rusPhoneRegex = @"^((8|\+7)[\-]?)?(\(?\d{3}\)?[\-]?)?[\d\- ]{7,10}$";
-
     public string Number { get; private set; }
 
-    private PhoneNumber()
-    {
-    }
 
-    public PhoneNumber(string number)
+    private PhoneNumber(string number)
     {
         Number = number;
     }
 
     public static Result<PhoneNumber, Error> Create(string input)
     {
-        if (string.IsNullOrWhiteSpace(input))
+        input = input.Trim(); 
+        if (input.Length is <1 or >11)
         {
-            return Errors.General.ValueIsRequired(nameof(PhoneNumber));
+            return Errors.General.ValueIsRequired("PhoneNumberRecord");
         }
-        if (Regex.IsMatch(input, rusPhoneRegex) == false)
+        if (ValidatePhoneNumber(input))
         {
-            return Errors.General.ValueIsInvalid(nameof(PhoneNumber));
+            return Errors.General.ValueIsInvalid("PhoneNumberRecord");
         }
         return new PhoneNumber(input);
+    }
+
+    private static bool ValidatePhoneNumber(string phoneNumber)
+    {
+        PN.PhoneNumberUtil phoneNumberUtil = PN.PhoneNumberUtil.GetInstance();
+        try
+        {
+            PN.PhoneNumber parsedPhoneNumber = phoneNumberUtil.Parse(phoneNumber, null);
+            return phoneNumberUtil.IsValidNumber(parsedPhoneNumber);
+        }
+        catch(PN.NumberParseException)
+        {
+            return false;
+        }
     }
 }
