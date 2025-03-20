@@ -24,9 +24,13 @@ public class Hotel : Entity
 
     public float Rating { get; private set; } = 0;
 
+    public IEnumerable<CurrentRoom> CurrentRooms { get; private set; } = [];
+
+    public IEnumerable<Room> Rooms { get; private set; } = [];
     public static Result<Hotel, Error> Create(string name, Address address, float rating)
     {
-        if(name.IsNullOrWhiteSpace())
+        name = name.Trim();
+        if(name.Length is <1 or >100)
             return Errors.General.ValueIsRequired(nameof(name));
         if(rating < 0 || rating > 5)
             return Errors.General.ValueIsInvalid(nameof(rating));

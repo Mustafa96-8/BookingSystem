@@ -10,6 +10,11 @@ namespace BookingSystem.Domain.Entities;
 
 public class CurrentRoom :Entity
 {
+
+    private CurrentRoom()
+    {
+    }
+
     private CurrentRoom(int number, IEnumerable<byte> photos,Room room)
     {
         this.number = number;

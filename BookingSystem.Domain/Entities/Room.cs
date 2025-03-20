@@ -17,7 +17,7 @@ public class Room : Entity
     private Room(string description, Price price, RoomType roomType, IEnumerable<Сonvenience> conveniences)
     {
         Description = description;
-        this.price = price;
+        this.Price = price;
         this.roomType = roomType;
         this.conveniences = conveniences;
     }
@@ -28,7 +28,7 @@ public class Room : Entity
     /// <summary>
     /// Цена
     /// </summary>
-    public Price price { get; private set; }
+    public Price Price { get; private set; }
     /// <summary>
     /// Тип комнаты
     /// </summary>
